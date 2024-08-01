@@ -12,17 +12,23 @@
 typedef class localize{
 public:
 	void Initialize();
-	float linearDistance(float);
-	float angularDistance(float);
-	int lineAssisting();
-	void thetaUpdate();
+
+	float delta_x_update(float,float);
+	float delta_y_update(float,float);
+	float thetaUpdate(float);
+
+	int locLineAssisting();
+
+	int hitWall_Near();
+	int hitWall_CLP();
 private:
+	float delta_x=0;
+	float delta_y=0;
 	float theta=0;
-	float linear_displacement=0;
-	float angular_displacement=0;
+	float last_theta=0;
 	float last_spd=0;
 	float last_omega=0;
-	int line=0;
+	int locLine=0;
 }localize;
 
 

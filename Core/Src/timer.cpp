@@ -22,15 +22,20 @@ int count=0;
 extern TIM_HandleTypeDef htim6;
 extern float spd;
 extern float omega;
-extern float linear_distance;
-extern float angular_distance;
+extern float theta;
+extern float x_distance;
+extern float y_distance;
+extern int lineInfo;
 
 void setup(){
 	HAL_TIM_Base_Start_IT(&htim6);
 }
+
 void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim){
-	linear_distance=car.linearDistance(spd);
-	angular_distance=car.angularDistance(omega);
-	car.lineAssisting();
+	theta=theta+car.thetaUpdate(omega);
+	x_distance=car.delta_x_update(spd,omega);
+	y_distance=car.delta_y_update(spd,omega);
+	lineInfo=car.locLineAssisting();
+	//car.lineAssisting();
 	count++;
 }

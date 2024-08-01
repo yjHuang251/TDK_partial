@@ -44,8 +44,10 @@ TIM_HandleTypeDef htim6;
 /* USER CODE BEGIN PV */
 float spd=0;
 float omega=0;
-float linear_distance=0;
-float angular_distance=0;
+float theta=0;
+float x_distance=0;
+float y_distance=0;
+float lineInfo=2;
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -96,7 +98,6 @@ int main(void)
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
-  spd=0.5;
   while (1)
   {
     /* USER CODE END WHILE */
@@ -195,26 +196,26 @@ static void MX_GPIO_Init(void)
 
   /* GPIO Ports Clock Enable */
   __HAL_RCC_GPIOA_CLK_ENABLE();
-  __HAL_RCC_GPIOC_CLK_ENABLE();
   __HAL_RCC_GPIOB_CLK_ENABLE();
+  __HAL_RCC_GPIOC_CLK_ENABLE();
 
-  /*Configure GPIO pins : s5_Pin s4_Pin s1_Pin */
-  GPIO_InitStruct.Pin = s5_Pin|s4_Pin|s1_Pin;
+  /*Configure GPIO pins : s5_Pin s4_Pin CLP_Pin s1_Pin */
+  GPIO_InitStruct.Pin = s5_Pin|s4_Pin|CLP_Pin|s1_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
+
+  /*Configure GPIO pins : Near_Pin s3_Pin */
+  GPIO_InitStruct.Pin = Near_Pin|s3_Pin;
+  GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
+  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
 
   /*Configure GPIO pin : s2_Pin */
   GPIO_InitStruct.Pin = s2_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   HAL_GPIO_Init(s2_GPIO_Port, &GPIO_InitStruct);
-
-  /*Configure GPIO pin : s3_Pin */
-  GPIO_InitStruct.Pin = s3_Pin;
-  GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
-  GPIO_InitStruct.Pull = GPIO_NOPULL;
-  HAL_GPIO_Init(s3_GPIO_Port, &GPIO_InitStruct);
 
 }
 
