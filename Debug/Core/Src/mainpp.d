@@ -1,5 +1,5 @@
 Core/Src/mainpp.o: ../Core/Src/mainpp.cpp ../Core/Inc/mainpp.h \
- ../Core/Inc/localization.h ../Core/Inc/timer.h \
+ ../Core/Inc/localization.h ../Core/Inc/navigation.h ../Core/Inc/timer.h \
  ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal.h \
  ../Core/Inc/stm32g4xx_hal_conf.h \
  ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_rcc.h \
@@ -29,6 +29,7 @@ Core/Src/mainpp.o: ../Core/Src/mainpp.cpp ../Core/Inc/mainpp.h \
  ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_tim_ex.h
 ../Core/Inc/mainpp.h:
 ../Core/Inc/localization.h:
+../Core/Inc/navigation.h:
 ../Core/Inc/timer.h:
 ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal.h:
 ../Core/Inc/stm32g4xx_hal_conf.h:

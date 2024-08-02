@@ -16,7 +16,7 @@ void localize::Initialize(){
 	last_theta=0;
 	last_spd=0;
 	last_omega=0;
-	locLine=0;
+	line=0;
 }
 
 float localize::delta_x_update(float spd,float omega){
@@ -37,14 +37,17 @@ float localize::thetaUpdate(float omega){
 	return theta;
 }
 
-int localize::locLineAssisting(){
-	locLine=10000*HAL_GPIO_ReadPin(GPIOA, GPIO_PIN_9/*s1*/)+1000*HAL_GPIO_ReadPin(GPIOC, GPIO_PIN_7/*s2*/)
-		 +100*HAL_GPIO_ReadPin(GPIOB, GPIO_PIN_6/*s3*/)+10*HAL_GPIO_ReadPin(GPIOA, GPIO_PIN_7/*s4*/)
-		 +HAL_GPIO_ReadPin(GPIOA, GPIO_PIN_6/*s5*/);
+int localize::getLineData(){
+	line=10000*HAL_GPIO_ReadPin(GPIOA, GPIO_PIN_9/*s1*/)+1000*HAL_GPIO_ReadPin(GPIOC, GPIO_PIN_7/*s2*/)
+			 +100*HAL_GPIO_ReadPin(GPIOB, GPIO_PIN_6/*s3*/)+10*HAL_GPIO_ReadPin(GPIOA, GPIO_PIN_7/*s4*/)
+			 +HAL_GPIO_ReadPin(GPIOA, GPIO_PIN_6/*s5*/);
+	return line;
+}
+int localize::locLineAssisting(int line){
 	//test corner
-	if(locLine==1||locLine==11||locLine==111||locLine==1111) return 1;//need to turn left
-	else if(locLine==10000||locLine==11000||locLine==11100||locLine==11110) return 2;//need to turn right
-	else if(locLine==11111) return 3;//T corner, need to stop
+	if(line==1||line==11||line==111||line==1111) return 1;//need to turn left
+	else if(line==10000||line==11000||line==11100||line==11110) return 2;//need to turn right
+	else if(line==11111) return 3;//T corner or cross-section, need to stop
 	else return 0;
 }
 
@@ -57,7 +60,7 @@ int localize::hitWall_Near(){//external interrupt
 }
 int localize::hitWall_CLP(){//external interrupt
 	if(HAL_GPIO_ReadPin(GPIOA,GPIO_PIN_8/*CLP*/)){
-			return 1;
+		return 1;
 	}
 	else return 0;
 }

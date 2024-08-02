@@ -7,6 +7,7 @@
 
 #include "mainpp.h"
 #include "localization.h"
+#include "navigation.h"
 #include "timer.h"
 
 void main_function(){

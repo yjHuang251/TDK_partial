@@ -21,7 +21,7 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-
+#include "mainpp.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -31,6 +31,7 @@
 
 /* Private define ------------------------------------------------------------*/
 /* USER CODE BEGIN PD */
+#define pi 3.14159265358979323846
 /* USER CODE END PD */
 
 /* Private macro -------------------------------------------------------------*/
@@ -48,6 +49,29 @@ float theta=0;
 float x_distance=0;
 float y_distance=0;
 float lineInfo=2;
+int index;
+float missions[]={
+		//unit of distance: cm, unit of theta: rad
+		//first mission
+		100/*get left balls*/, pi/2/*turn right*/    , 10/*first ball*/     ,
+		10/*second ball*/    , 10/*third ball*/      , 10/*fourth ball*/    ,
+		10/*fifth ball*/     , pi/2/*turn right*/    , 200/*get right ball*/,
+		pi/2/*turn right*/   , 15/*first ball*/      , 15/*second ball*/    ,
+		15/*third ball*/     , pi/*turn back*/       , 45/*go back*/        ,
+		pi/2/*turn left*/    , 150/*leave mission 1*/, pi/2/*turn right*/   ,
+		//third mission
+		300/*go straight*/   , pi/2/*turn left*/     , 200/*through the archway*/,
+		200/*go to reset C*/ ,
+		//fifth mission
+		pi/2/*turn left*/    , 50/*go straight*/     , pi/2/*turn left*/    ,
+		50/*put ball*/       , 50/*go to corner 1*/  , pi/2/*turn right*/   ,
+		50/*go straight*/    , pi/2/*turn right*/    , 50/*put ball*/       ,
+		50/*go to corner 2*/ , pi/2/*turn left*/     , 100/*go to reset D*/ ,
+		//sixth mission
+		pi/2/*turn left*/    , 100/*go straight*/,
+		//missions complete
+		2048
+};
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
