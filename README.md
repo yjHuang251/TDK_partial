@@ -7,12 +7,12 @@ if you have a different project name, change it at **.project** and **.cproject*
 * when it's time to do mission, send message to Arduino and stop localizing and navigating
 * coordinate system based on the chassis
 ## detail
-```md
+```
 timer callback:
    ｜
    \/
- ->**v,w**-->**localization**: *calculate current pose and get line following data*--
+ ->v,w-->localization: calculate current pose and get line following data--
 ｜　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　|
-Ｌ**navigation**: *speed control and offset correction*<--**distance, theta**<-------
+Ｌnavigation: speed control and offset correction<-distance, theta<--------
 
 ```
