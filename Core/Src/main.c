@@ -48,7 +48,7 @@ float omega=0;
 float theta=0;
 float x_distance=0;
 float y_distance=0;
-float lineInfo=2;
+int lineInfo[5]={0};
 int index;
 float missions[]={
 		//unit of distance: cm, unit of theta: rad

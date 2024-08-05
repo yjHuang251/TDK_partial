@@ -17,11 +17,13 @@ public:
 	float delta_y_update(float,float);
 	float thetaUpdate(float);
 
-	int getLineData();
-	int locLineAssisting(int);
+	int* getLineData();
+	//int locLineAssisting(int);
 
 	int hitWall_Near();
 	int hitWall_CLP();
+
+	int line[5]={0};
 private:
 	float delta_x=0;
 	float delta_y=0;
@@ -29,7 +31,6 @@ private:
 	float last_theta=0;
 	float last_spd=0;
 	float last_omega=0;
-	int line=2;
 }localize;
 
 

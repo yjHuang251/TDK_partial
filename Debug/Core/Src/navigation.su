@@ -2,6 +2,6 @@ c:\st\stm32cubeide_1.10.1\stm32cubeide\plugins\com.st.stm32cube.ide.mcu.external
 ../Core/Src/navigation.cpp:10:6:void navigate::stop()	16	static
 ../Core/Src/navigation.cpp:15:7:float navigate::spdControl(float, float, float)	40	static
 ../Core/Src/navigation.cpp:27:7:float navigate::wControl(float, float)	32	static
-../Core/Src/navigation.cpp:39:7:float navigate::y_correction(float, float, float)	24	static
-../Core/Src/navigation.cpp:43:7:float navigate::navLineAssisting(int)	16	static
-../Core/Src/navigation.cpp:47:7:float navigate::getMeanW()	16	static
+../Core/Src/navigation.cpp:39:7:float navigate::y_correction(float, float, float)	32	static
+../Core/Src/navigation.cpp:48:7:float navigate::LineAssisting(int*)	40	static
+../Core/Src/navigation.cpp:85:7:float navigate::getMeanW()	16	static
