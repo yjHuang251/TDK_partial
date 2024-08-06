@@ -63,12 +63,24 @@ void Error_Handler(void);
 #define s4_GPIO_Port GPIOA
 #define Near_Pin GPIO_PIN_10
 #define Near_GPIO_Port GPIOB
+#define resetC_Pin GPIO_PIN_13
+#define resetC_GPIO_Port GPIOB
+#define resetC_EXTI_IRQn EXTI15_10_IRQn
+#define resetD_Pin GPIO_PIN_14
+#define resetD_GPIO_Port GPIOB
+#define resetD_EXTI_IRQn EXTI15_10_IRQn
 #define s2_Pin GPIO_PIN_7
 #define s2_GPIO_Port GPIOC
 #define CLP_Pin GPIO_PIN_8
 #define CLP_GPIO_Port GPIOA
 #define s1_Pin GPIO_PIN_9
 #define s1_GPIO_Port GPIOA
+#define resetB_Pin GPIO_PIN_4
+#define resetB_GPIO_Port GPIOB
+#define resetB_EXTI_IRQn EXTI4_IRQn
+#define resetA_Pin GPIO_PIN_5
+#define resetA_GPIO_Port GPIOB
+#define resetA_EXTI_IRQn EXTI9_5_IRQn
 #define s3_Pin GPIO_PIN_6
 #define s3_GPIO_Port GPIOB
 /* USER CODE BEGIN Private defines */

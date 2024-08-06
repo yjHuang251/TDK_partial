@@ -43,35 +43,7 @@
 TIM_HandleTypeDef htim6;
 
 /* USER CODE BEGIN PV */
-float spd=0;
-float omega=0;
-float theta=0;
-float x_distance=0;
-float y_distance=0;
-int lineInfo[5]={0};
-int index;
-float missions[]={
-		//unit of distance: cm, unit of theta: rad
-		//first mission
-		100/*get left balls*/, pi/2/*turn right*/    , 10/*first ball*/     ,
-		10/*second ball*/    , 10/*third ball*/      , 10/*fourth ball*/    ,
-		10/*fifth ball*/     , pi/2/*turn right*/    , 200/*get right ball*/,
-		pi/2/*turn right*/   , 15/*first ball*/      , 15/*second ball*/    ,
-		15/*third ball*/     , pi/*turn back*/       , 45/*go back*/        ,
-		pi/2/*turn left*/    , 150/*leave mission 1*/, pi/2/*turn right*/   ,
-		//third mission
-		300/*go straight*/   , pi/2/*turn left*/     , 200/*through the archway*/,
-		200/*go to reset C*/ ,
-		//fifth mission
-		pi/2/*turn left*/    , 50/*go straight*/     , pi/2/*turn left*/    ,
-		50/*put ball*/       , 50/*go to corner 1*/  , pi/2/*turn right*/   ,
-		50/*go straight*/    , pi/2/*turn right*/    , 50/*put ball*/       ,
-		50/*go to corner 2*/ , pi/2/*turn left*/     , 100/*go to reset D*/ ,
-		//sixth mission
-		pi/2/*turn left*/    , 100/*go straight*/,
-		//missions complete
-		2048
-};
+
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -235,11 +207,27 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
 
+  /*Configure GPIO pins : resetC_Pin resetD_Pin resetB_Pin resetA_Pin */
+  GPIO_InitStruct.Pin = resetC_Pin|resetD_Pin|resetB_Pin|resetA_Pin;
+  GPIO_InitStruct.Mode = GPIO_MODE_IT_RISING;
+  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
+
   /*Configure GPIO pin : s2_Pin */
   GPIO_InitStruct.Pin = s2_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   HAL_GPIO_Init(s2_GPIO_Port, &GPIO_InitStruct);
+
+  /* EXTI interrupt init*/
+  HAL_NVIC_SetPriority(EXTI4_IRQn, 0, 0);
+  HAL_NVIC_EnableIRQ(EXTI4_IRQn);
+
+  HAL_NVIC_SetPriority(EXTI9_5_IRQn, 0, 0);
+  HAL_NVIC_EnableIRQ(EXTI9_5_IRQn);
+
+  HAL_NVIC_SetPriority(EXTI15_10_IRQn, 0, 0);
+  HAL_NVIC_EnableIRQ(EXTI15_10_IRQn);
 
 }
 

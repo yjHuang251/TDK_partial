@@ -4,6 +4,6 @@ c:\st\stm32cubeide_1.10.1\stm32cubeide\plugins\com.st.stm32cube.ide.mcu.external
 ../Core/Src/localization.cpp:21:7:float localize::delta_x_update(float, float)	48	static
 ../Core/Src/localization.cpp:28:7:float localize::delta_y_update(float, float)	48	static
 ../Core/Src/localization.cpp:33:7:float localize::thetaUpdate(float)	24	static
-../Core/Src/localization.cpp:39:6:int* localize::getLineData()	16	static
-../Core/Src/localization.cpp:58:5:int localize::hitWall_Near()	16	static
-../Core/Src/localization.cpp:65:5:int localize::hitWall_CLP()	16	static
+../Core/Src/localization.cpp:39:6:void localize::getLineData()	16	static
+../Core/Src/localization.cpp:57:5:int localize::hitWall_Near()	16	static
+../Core/Src/localization.cpp:64:5:int localize::hitWall_CLP()	16	static

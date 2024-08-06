@@ -17,7 +17,7 @@ public:
 	float delta_y_update(float,float);
 	float thetaUpdate(float);
 
-	int* getLineData();
+	void getLineData();
 	//int locLineAssisting(int);
 
 	int hitWall_Near();

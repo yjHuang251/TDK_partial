@@ -36,7 +36,7 @@ float localize::thetaUpdate(float omega){
 	return theta;
 }
 
-int* localize::getLineData(){
+void localize::getLineData(){
 //	line=10000*HAL_GPIO_ReadPin(GPIOA, GPIO_PIN_9/*s1*/)+1000*HAL_GPIO_ReadPin(GPIOC, GPIO_PIN_7/*s2*/)
 //			 +100*HAL_GPIO_ReadPin(GPIOB, GPIO_PIN_6/*s3*/)+10*HAL_GPIO_ReadPin(GPIOA, GPIO_PIN_7/*s4*/)
 //			 +HAL_GPIO_ReadPin(GPIOA, GPIO_PIN_6/*s5*/);
@@ -45,7 +45,6 @@ int* localize::getLineData(){
 	line[2]=HAL_GPIO_ReadPin(GPIOB, GPIO_PIN_6/*s3*/);
 	line[3]=HAL_GPIO_ReadPin(GPIOA, GPIO_PIN_7/*s4*/);
 	line[4]=HAL_GPIO_ReadPin(GPIOA, GPIO_PIN_6/*s5*/);
-	return line;
 }
 //int localize::locLineAssisting(int line){
 //	//test corner

@@ -1,4 +1,5 @@
-Core/Src/timer.o: ../Core/Src/timer.cpp ../Core/Inc/timer.h \
+Core/Src/resetProcess.o: ../Core/Src/resetProcess.cpp \
+ ../Core/Inc/resetProcess.h \
  ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal.h \
  ../Core/Inc/stm32g4xx_hal_conf.h \
  ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_rcc.h \
@@ -25,10 +26,8 @@ Core/Src/timer.o: ../Core/Src/timer.cpp ../Core/Inc/timer.h \
  ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_pwr.h \
  ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_pwr_ex.h \
  ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_tim.h \
- ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_tim_ex.h \
- ../Core/Inc/localization.h ../Core/Inc/navigation.h \
- ../Core/Inc/resetProcess.h
-../Core/Inc/timer.h:
+ ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_tim_ex.h
+../Core/Inc/resetProcess.h:
 ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal.h:
 ../Core/Inc/stm32g4xx_hal_conf.h:
 ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_rcc.h:
@@ -56,6 +55,3 @@ Core/Src/timer.o: ../Core/Src/timer.cpp ../Core/Inc/timer.h \
 ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_pwr_ex.h:
 ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_tim.h:
 ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_tim_ex.h:
-../Core/Inc/localization.h:
-../Core/Inc/navigation.h:
-../Core/Inc/resetProcess.h:

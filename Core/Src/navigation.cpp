@@ -45,7 +45,7 @@ float navigate::y_correction(float spd, float theta, float y_distance){
 	y_w=y_PIDval/halfWidth;
 	return y_w;
 }
-float navigate::LineAssisting(int* lineInfo){
+float navigate::lineAssisting(int* lineInfo){
 	int left=0;
 	int center=0;
 	int right=0;
@@ -82,7 +82,7 @@ float navigate::LineAssisting(int* lineInfo){
 	nav_w=nav_PIDval/halfWidth;
 	return nav_w;
 }
-float navigate::getMeanW(){
-	w=y_w*(1-weight)+nav_w*weight;
+float navigate::getMeanW(float spd, float theta, float y_distance, int* lineInfo){
+	w=y_correction(spd, theta, y_distance)*(1-weight)+lineAssisting(lineInfo)*weight;
 	return w;
 }

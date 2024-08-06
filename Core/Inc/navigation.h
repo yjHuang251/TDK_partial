@@ -35,13 +35,13 @@ public:
 	float spdControl(float,float,float);
 	float wControl(float,float);
 
-	float LineAssisting(int*);
+	float lineAssisting(int*);
 	float y_correction(float,float,float);
-	float getMeanW();
+	float getMeanW(float, float, float, int*);
 
 	float goal_distance=0;
 	float goal_theta=0;
-	float weight=0;
+	float weight=0.5;
 private:
 	float v=0;
 	float w=0;
